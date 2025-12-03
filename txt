@@ -1,0 +1,141 @@
+-----task1-----------------------
+git init
+git remote add origin https://github.com/yourusername/your-private-repo.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+git push -u origin main
+----------task-2------------------------------------------------------
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+git config --list
+------repository management--------------------------------------------
+git init
+git clone https://github.com/username/repository.git
+git remote -v
+git remote add origin https://github.com/username/repository.git
+git push origin main
+git pull origin main
+git remote remove origin
+git remote rename origin upstream
+git fetch origin
+git remote set-url origin https://github.com/username/new-repository.git
+git remote show origin
+------stages and commitments----------------------
+git status
+git add filename.txt
+git add .
+git commit -m "Commit message"
+
+--------Branching & Merging----------------------------------
+git branch
+git branch -a
+git branch branch-name
+git branch -d branch-name
+git branch -r
+git checkout branch-name
+git checkout -b new-branch
+git remote prune origin
+git fetch origin feature-branch
+git push --set-upstream origin feature-branch
+git checkout main
+git merge branch-name
+git fetch origin
+git rebase origin/main
+-------undo changes-----------------------------------
+git reset file
+git revert <commit>
+
+-----viewing history--------------------------------
+git log
+git log --oneline
+git diff
+git show <commit>
+-------undo staging--------------------------------------
+git restore filename
+-----correct commit message---------------------------
+
+git commit --amend -m "Corrected commit message"
+
+-----recover deleted branches--------------------------
+git reflog
+git checkout -b feature-ui <commit_hash>
+------Fetch without merge------------------------------
+git fetch origin
+------Merge---------------------------------------------
+git checkout previous-branch
+git merge another-branch
+-----resolve merge conflict---------------------------
+git add app.js
+git commit
+-----gitignore--------------------------------------
+touch .gitignore
+------blame----------------------------------------
+git blame script.py
+-------stash-------------------------------------------
+git stash
+git stash apply
+-------Check merged branches------------------------------------
+git branch --merged
+-------Delete multiple branches--------------------------------
+git branch -d branch1 branch2 branch3
+--------Scenario-Based (Local Git) – Commands Only-------------------
+git restore filename
+git reset file1.txt
+git commit --amend -m "Corrected message"
+git log --oneline
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+git diff
+git checkout feature/login
+git reflog
+git checkout -b feature-ui <commit_hash>
+git push origin main
+git fetch origin
+git checkout -b search-filter
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch keys.txt" --prune-empty --tag-name-filter cat -- --all
+git branch -a
+git checkout main
+git merge feature/signup
+git add app.js
+git commit
+touch .gitignore
+git blame script.py
+git stash
+git stash apply
+git branch -d feature/test
+git branch -d feature-ui
+git branch -D feature-experiment
+git branch -d feature-ui
+git branch --merged
+git branch -d feature-a feature-b feature-c
+--------------------------Commands Only (Fork → PR → Merge → Update)----------------------
+git clone https://github.com/your-username/awesome-project
+git add .
+git commit -m "your message"
+git push origin main
+
+-------------------------Keep Local Branch Updated (Person 1 & Person 2)-------------
+
+git checkout main
+git pull origin main
+git checkout feature/your-new-feature
+git merge main
+cd repository-name
+-----------------maven----------------
+git init
+git add .
+git commit -m "Initial Maven project commit"
+git remote add origin https://github.com/ananya-1507/new_maven_project.git
+git branch -M main
+git push -u origin main
+echo target/ > .gitignore
+git add .gitignore
+git commit -m "Add gitignore to ignore target folder"
+git push
+
+
+
+
+
