@@ -1,0 +1,23 @@
+ec2->launch instance->name->key .pem->ssh client->
+flowder .pem copy path ->cmd ad->cd path->copy command shh -i--
+paste (will be into ubantu)
+sudo apt update
+sudo apt-get install docker-I
+sudo apt install git 
+sudo apt install nano
+create application (example floder inside inde.html)
+git bash 
+git init 
+git add . 
+git commit -m 'first commit'
+create empy repo (3 commands)
+copy http 
+cmd(git clone http)
+ls(example)
+cd example
+ls(index.html)
+nano dockerfile(From nginx:alpine COPY ./usr/share/nginx/html )
+sudo docker build -t mywebapp .
+sudo docker run -d -p 80:80 mywebapp
+
+ec2->instances->publicipv4 copy ->http://code
