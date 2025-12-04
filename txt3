@@ -1,0 +1,59 @@
+ssh -i "your-key.pem" ubuntu@EC2_PUBLIC_IP
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+sudo apt install tomcat9 tomcat9-admin -y
+sudo systemctl start tomcat9
+sudo systemctl enable tomcat9
+http://EC2_PUBLIC_IP:8080
+target/yourapp.war
+scp -i your-key.pem target/yourapp.war ubuntu@EC2_PUBLIC_IP:/tmp/
+sudo mv /tmp/yourapp.war /var/lib/tomcat9/webapps/
+ls /var/lib/tomcat9/webapps/
+yourapp  yourapp.war
+----------------------script---------------------
+pipeline {
+    agent any
+
+    tools {
+        maven 'MAVEN_HOME'   // use the Maven name configured in Jenkins
+    }
+
+    stages {
+        stage('Git Checkout & Clean') {
+            steps {
+                // Clone your GitHub repo (replace the link below)
+                bat 'git clone https://github.com/ananya-1507/maven-project.git'
+                
+                // Clean the project using Maven
+                bat 'mvn clean -f maven-project/pom.xml'
+            }
+        }
+
+        stage('Install') {
+            steps {
+                bat 'mvn install -f maven-project/pom.xml'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'mvn test -f maven-project/pom.xml'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'mvn package -f maven-project/pom.xml'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Build, Test, and Package stages completed successfully!'
+        }
+        failure {
+            echo '❌ Build failed. Check the console output for details.'
+        }
+    }
+}
